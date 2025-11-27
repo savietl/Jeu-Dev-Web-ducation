@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jeu Dev Web Éducation</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app">
+
+  <!-- Écran Accueil -->
+  <div id="welcomeScreen" class="screen active">
+    <div class="overlay">
+      <div class="text-block">
+        <h1>Jeu Dev Web Éducation</h1>
+        <p>Apprends le développement web et teste tes connaissances !</p>
+        
+        <!-- Bouton de contrôle audio -->
+        <div class="audio-control-container">
+          <button id="audioToggle" class="audio-toggle-btn">
+            <span class="audio-icon">🔇</span>
+            <span class="audio-text">Activer l'Audio</span>
+          </button>
+        </div>
+      </div>
+      <button id="startBtn" class="neon-btn">Commencer l'Aventure</button>
+    </div>
+    <audio id="welcomeMusic" loop preload="auto">
+      <source src="action-187118.mp3" type="audio/mpeg">
+      Votre navigateur ne supporte pas l'audio.
+    </audio>
+  </div>
+
+  <!-- Écran Sélection Niveau -->
+  <div id="levelScreen" class="screen">
+    <h2>Choisis un niveau</h2>
+    <div id="levelsContainer" class="levels"></div>
+  </div>
+
+  <!-- Écran Cours -->
+  <div id="courseScreen" class="screen">
+    <h2 id="courseTitle"></h2>
+    <div class="course-content">
+      <div class="course-image-wrapper">
+        <img id="courseImage" src="" alt="Cours" class="course-image">
+      </div>
+      <div class="course-text-content">
+        <pre id="courseContent"></pre>
+        <div class="course-buttons">
+          <button id="prevCourseBtn" class="neon-btn">Retour aux niveaux</button>
+          <button id="startQuizBtn" class="neon-btn">Commencer le quiz</button>
+        </div>
+      </div>
+    </div>
+    <audio id="courseMusic" loop preload="auto">
+      <source src="ouverture-du-bal-a-la-cour-du-roi-269370.mp3" type="audio/mpeg">
+      Votre navigateur ne supporte pas l'audio.
+    </audio>
+  </div>
+
+  <!-- Écran Quiz -->
+  <div id="quizScreen" class="screen">
+    <div class="progress-bar">
+      <div id="progressFill"></div>
+    </div>
+    <h3 id="questionText"></h3>
+    <img id="quizImage" src="" alt="Quiz" class="quiz-image">
+    <div id="optionsContainer" class="options"></div>
+    <div id="feedback" class="feedback"></div>
+    <div class="quiz-buttons">
+      <button id="prevQuizBtn" class="neon-btn">Précédent</button>
+      <button id="nextQuizBtn" class="neon-btn">Suivant</button>
+    </div>
+    <audio id="quizMusic" loop preload="auto">
+      <source src="quiz-background-loop-thinking-news-275636.mp3" type="audio/mpeg">
+      Votre navigateur ne supporte pas l'audio.
+    </audio>
+  </div>
+
+  <!-- Écran Résultat -->
+  <div id="resultScreen" class="screen">
+    <h2>Résultat final</h2>
+    <img id="resultImage" src="resultat.jpg" alt="Résultat" class="center-image">
+    <p>Score : <span id="finalScore">0</span> / <span id="totalQuestions">0</span></p>
+    <div id="stars" class="stars"></div>
+    <button id="replayBtn" class="neon-btn">Rejouer</button>
+    <audio id="resultMusic" loop preload="auto">
+      <source src="we-can-do-this-331418.mp3" type="audio/mpeg">
+      Votre navigateur ne supporte pas l'audio.
+    </audio>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+
+<!-- Script amélioré pour la gestion audio -->
+<script>
+// Empêche le clic droit
+document.addEventListener('contextmenu', e => e.preventDefault());
+
+// Empêche Ctrl+U, Ctrl+S, Ctrl+C
+document.onkeydown = e => {
+  if (e.ctrlKey && (e.key === 'u' || e.key === 's' || e.key === 'c')) {
+    e.preventDefault();
+    alert("© 2025 Eya Touil – Tous droits réservés.");
+  }
+};
+
+// Message dans la console
+console.log("%c© 2025 Eya Touil – Tous droits réservés.", "color:#f06;font-weight:bold;");
+
+// Test simple de l'audio au chargement
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('Fichiers audio disponibles:');
+  console.log('- action-187118.mp3');
+  console.log('- ouverture-du-bal-a-la-cour-du-roi-269370.mp3');
+  console.log('- quiz-background-loop-thinking-news-275636.mp3');
+  console.log('- we-can-do-this-331418.mp3');
+});
+</script>
+
+</body>
+</html>
